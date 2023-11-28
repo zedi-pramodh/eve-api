@@ -633,6 +633,9 @@ message ZInfoDevice {
 
   // Reports the remote access status
   bool remote_access_disabled = 52;
+
+  // OptionalCapabilities of the device
+  OptionalCapabilities optional_capabilities = 53;
 }
 
 // OptionalCapabilities indicates any additional capabilities device wants
