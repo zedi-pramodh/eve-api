@@ -635,6 +635,14 @@ message ZInfoDevice {
   bool remote_access_disabled = 52;
 }
 
+// OptionalCapabilities indicates any additional capabilities device wants
+// to publish to controller. For example Kubevirt hypervisor is not supported by
+// all eve flavors.
+message OptionalCapabilities {
+  // Virtualization type Kubevirt
+  bool hv_type_kubevirt = 1;
+}
+
 // Capabilities indicates features in the EdgeDevConfig where there is
 // no easy way to otherwise determine whether or not they are parsed and
 // supported by EVE-OS
