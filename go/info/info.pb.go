@@ -4216,6 +4216,8 @@ type ZInfoDevice struct {
 	ApiCapability APICapability `protobuf:"varint,51,opt,name=api_capability,json=apiCapability,proto3,enum=org.lfedge.eve.info.APICapability" json:"api_capability,omitempty"`
 	// Reports the remote access status
 	RemoteAccessDisabled bool `protobuf:"varint,52,opt,name=remote_access_disabled,json=remoteAccessDisabled,proto3" json:"remote_access_disabled,omitempty"`
+	// OptionalCapabilities of the device
+	OptionalCapabilities *OptionalCapabilities `protobuf:"bytes,53,opt,name=optional_capabilities,json=optionalCapabilities,proto3" json:"optional_capabilities,omitempty"`
 }
 
 func (x *ZInfoDevice) Reset() {
@@ -4578,6 +4580,13 @@ func (x *ZInfoDevice) GetRemoteAccessDisabled() bool {
 		return x.RemoteAccessDisabled
 	}
 	return false
+}
+
+func (x *ZInfoDevice) GetOptionalCapabilities() *OptionalCapabilities {
+	if x != nil {
+		return x.OptionalCapabilities
+	}
+	return nil
 }
 
 // OptionalCapabilities indicates any additional capabilities device wants
@@ -8073,7 +8082,7 @@ var file_info_info_proto_rawDesc = []byte{
 	0x69, 0x73, 0x6b, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x24, 0x2e, 0x6f, 0x72, 0x67,
 	0x2e, 0x6c, 0x66, 0x65, 0x64, 0x67, 0x65, 0x2e, 0x65, 0x76, 0x65, 0x2e, 0x69, 0x6e, 0x66, 0x6f,
 	0x2e, 0x53, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65, 0x44, 0x69, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f,
-	0x52, 0x05, 0x64, 0x69, 0x73, 0x6b, 0x73, 0x22, 0x85, 0x15, 0x0a, 0x0b, 0x5a, 0x49, 0x6e, 0x66,
+	0x52, 0x05, 0x64, 0x69, 0x73, 0x6b, 0x73, 0x22, 0xe5, 0x15, 0x0a, 0x0b, 0x5a, 0x49, 0x6e, 0x66,
 	0x6f, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x6d, 0x61, 0x63, 0x68, 0x69,
 	0x6e, 0x65, 0x41, 0x72, 0x63, 0x68, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x6d, 0x61,
 	0x63, 0x68, 0x69, 0x6e, 0x65, 0x41, 0x72, 0x63, 0x68, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x70, 0x75,
@@ -8241,7 +8250,13 @@ var file_info_info_proto_rawDesc = []byte{
 	0x61, 0x70, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x12, 0x34, 0x0a, 0x16, 0x72, 0x65, 0x6d,
 	0x6f, 0x74, 0x65, 0x5f, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x5f, 0x64, 0x69, 0x73, 0x61, 0x62,
 	0x6c, 0x65, 0x64, 0x18, 0x34, 0x20, 0x01, 0x28, 0x08, 0x52, 0x14, 0x72, 0x65, 0x6d, 0x6f, 0x74,
-	0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x44, 0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x64, 0x22,
+	0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x44, 0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x64, 0x12,
+	0x5e, 0x0a, 0x15, 0x6f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x5f, 0x63, 0x61, 0x70, 0x61,
+	0x62, 0x69, 0x6c, 0x69, 0x74, 0x69, 0x65, 0x73, 0x18, 0x35, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x29,
+	0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x6c, 0x66, 0x65, 0x64, 0x67, 0x65, 0x2e, 0x65, 0x76, 0x65, 0x2e,
+	0x69, 0x6e, 0x66, 0x6f, 0x2e, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x43, 0x61, 0x70,
+	0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x69, 0x65, 0x73, 0x52, 0x14, 0x6f, 0x70, 0x74, 0x69, 0x6f,
+	0x6e, 0x61, 0x6c, 0x43, 0x61, 0x70, 0x61, 0x62, 0x69, 0x6c, 0x69, 0x74, 0x69, 0x65, 0x73, 0x22,
 	0x40, 0x0a, 0x14, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x43, 0x61, 0x70, 0x61, 0x62,
 	0x69, 0x6c, 0x69, 0x74, 0x69, 0x65, 0x73, 0x12, 0x28, 0x0a, 0x10, 0x68, 0x76, 0x5f, 0x74, 0x79,
 	0x70, 0x65, 0x5f, 0x6b, 0x75, 0x62, 0x65, 0x76, 0x69, 0x72, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
@@ -9331,97 +9346,98 @@ var file_info_info_proto_depIdxs = []int32{
 	54,  // 65: org.lfedge.eve.info.ZInfoDevice.storage_info:type_name -> org.lfedge.eve.info.StorageInfo
 	58,  // 66: org.lfedge.eve.info.ZInfoDevice.attestation_info:type_name -> org.lfedge.eve.info.AttestationInfo
 	14,  // 67: org.lfedge.eve.info.ZInfoDevice.api_capability:type_name -> org.lfedge.eve.info.APICapability
-	17,  // 68: org.lfedge.eve.info.AttestationInfo.state:type_name -> org.lfedge.eve.info.AttestationState
-	37,  // 69: org.lfedge.eve.info.AttestationInfo.error:type_name -> org.lfedge.eve.info.ErrorInfo
-	60,  // 70: org.lfedge.eve.info.SystemAdapterInfo.status:type_name -> org.lfedge.eve.info.DevicePortStatus
-	92,  // 71: org.lfedge.eve.info.DevicePortStatus.timePriority:type_name -> google.protobuf.Timestamp
-	92,  // 72: org.lfedge.eve.info.DevicePortStatus.lastFailed:type_name -> google.protobuf.Timestamp
-	92,  // 73: org.lfedge.eve.info.DevicePortStatus.lastSucceeded:type_name -> google.protobuf.Timestamp
-	61,  // 74: org.lfedge.eve.info.DevicePortStatus.ports:type_name -> org.lfedge.eve.info.DevicePort
-	62,  // 75: org.lfedge.eve.info.DevicePort.proxy:type_name -> org.lfedge.eve.info.ProxyStatus
-	35,  // 76: org.lfedge.eve.info.DevicePort.dns:type_name -> org.lfedge.eve.info.ZInfoDNS
-	34,  // 77: org.lfedge.eve.info.DevicePort.location:type_name -> org.lfedge.eve.info.GeoLoc
-	37,  // 78: org.lfedge.eve.info.DevicePort.err:type_name -> org.lfedge.eve.info.ErrorInfo
-	91,  // 79: org.lfedge.eve.info.DevicePort.usage:type_name -> org.lfedge.eve.common.PhyIoMemberUsage
-	64,  // 80: org.lfedge.eve.info.DevicePort.wireless_status:type_name -> org.lfedge.eve.info.WirelessStatus
-	63,  // 81: org.lfedge.eve.info.ProxyStatus.proxies:type_name -> org.lfedge.eve.info.ProxyEntry
-	19,  // 82: org.lfedge.eve.info.WirelessStatus.type:type_name -> org.lfedge.eve.info.WirelessType
-	65,  // 83: org.lfedge.eve.info.WirelessStatus.cellular:type_name -> org.lfedge.eve.info.ZCellularStatus
-	48,  // 84: org.lfedge.eve.info.ZCellularStatus.providers:type_name -> org.lfedge.eve.info.ZCellularProvider
-	94,  // 85: org.lfedge.eve.info.ZCellularStatus.current_rats:type_name -> org.lfedge.eve.common.RadioAccessTechnology
-	92,  // 86: org.lfedge.eve.info.ZCellularStatus.connected_at:type_name -> google.protobuf.Timestamp
-	2,   // 87: org.lfedge.eve.info.ZInfoDevSW.status:type_name -> org.lfedge.eve.info.ZSwState
-	37,  // 88: org.lfedge.eve.info.ZInfoDevSW.swErr:type_name -> org.lfedge.eve.info.ErrorInfo
-	20,  // 89: org.lfedge.eve.info.ZInfoDevSW.userStatus:type_name -> org.lfedge.eve.info.BaseOsStatus
-	21,  // 90: org.lfedge.eve.info.ZInfoDevSW.subStatus:type_name -> org.lfedge.eve.info.BaseOsSubStatus
-	92,  // 91: org.lfedge.eve.info.ZInfoSnapshot.create_time:type_name -> google.protobuf.Timestamp
-	22,  // 92: org.lfedge.eve.info.ZInfoSnapshot.type:type_name -> org.lfedge.eve.info.SnapshotType
-	37,  // 93: org.lfedge.eve.info.ZInfoSnapshot.snap_err:type_name -> org.lfedge.eve.info.ErrorInfo
-	36,  // 94: org.lfedge.eve.info.ZInfoApp.softwareList:type_name -> org.lfedge.eve.info.ZInfoSW
-	92,  // 95: org.lfedge.eve.info.ZInfoApp.bootTime:type_name -> google.protobuf.Timestamp
-	29,  // 96: org.lfedge.eve.info.ZInfoApp.assignedAdapters:type_name -> org.lfedge.eve.info.ZioBundle
-	37,  // 97: org.lfedge.eve.info.ZInfoApp.appErr:type_name -> org.lfedge.eve.info.ErrorInfo
-	2,   // 98: org.lfedge.eve.info.ZInfoApp.state:type_name -> org.lfedge.eve.info.ZSwState
-	33,  // 99: org.lfedge.eve.info.ZInfoApp.network:type_name -> org.lfedge.eve.info.ZInfoNetwork
-	68,  // 100: org.lfedge.eve.info.ZInfoApp.snapshots:type_name -> org.lfedge.eve.info.ZInfoSnapshot
-	95,  // 101: org.lfedge.eve.info.ZInfoApp.patchEnvelope:type_name -> org.lfedge.eve.info.ZInfoPatchEnvelopeUsage
-	23,  // 102: org.lfedge.eve.info.ZInfoVpnLink.state:type_name -> org.lfedge.eve.info.ZInfoVpnState
-	70,  // 103: org.lfedge.eve.info.ZInfoVpnLink.lInfo:type_name -> org.lfedge.eve.info.ZInfoVpnLinkInfo
-	70,  // 104: org.lfedge.eve.info.ZInfoVpnLink.rInfo:type_name -> org.lfedge.eve.info.ZInfoVpnLinkInfo
-	23,  // 105: org.lfedge.eve.info.ZInfoVpnConn.state:type_name -> org.lfedge.eve.info.ZInfoVpnState
-	72,  // 106: org.lfedge.eve.info.ZInfoVpnConn.lInfo:type_name -> org.lfedge.eve.info.ZInfoVpnEndPoint
-	72,  // 107: org.lfedge.eve.info.ZInfoVpnConn.rInfo:type_name -> org.lfedge.eve.info.ZInfoVpnEndPoint
-	71,  // 108: org.lfedge.eve.info.ZInfoVpnConn.links:type_name -> org.lfedge.eve.info.ZInfoVpnLink
-	73,  // 109: org.lfedge.eve.info.ZInfoVpn.conn:type_name -> org.lfedge.eve.info.ZInfoVpnConn
-	92,  // 110: org.lfedge.eve.info.ZInfoNetworkInstance.upTimeStamp:type_name -> google.protobuf.Timestamp
-	36,  // 111: org.lfedge.eve.info.ZInfoNetworkInstance.softwareList:type_name -> org.lfedge.eve.info.ZInfoSW
-	27,  // 112: org.lfedge.eve.info.ZInfoNetworkInstance.ipAssignments:type_name -> org.lfedge.eve.info.ZmetIPAssignmentEntry
-	28,  // 113: org.lfedge.eve.info.ZInfoNetworkInstance.vifs:type_name -> org.lfedge.eve.info.ZmetVifInfo
-	29,  // 114: org.lfedge.eve.info.ZInfoNetworkInstance.assignedAdapters:type_name -> org.lfedge.eve.info.ZioBundle
-	74,  // 115: org.lfedge.eve.info.ZInfoNetworkInstance.vinfo:type_name -> org.lfedge.eve.info.ZInfoVpn
-	37,  // 116: org.lfedge.eve.info.ZInfoNetworkInstance.networkErr:type_name -> org.lfedge.eve.info.ErrorInfo
-	24,  // 117: org.lfedge.eve.info.ZInfoNetworkInstance.state:type_name -> org.lfedge.eve.info.ZNetworkInstanceState
-	92,  // 118: org.lfedge.eve.info.UsageInfo.createTime:type_name -> google.protobuf.Timestamp
-	92,  // 119: org.lfedge.eve.info.UsageInfo.lastRefcountChangeTime:type_name -> google.protobuf.Timestamp
-	76,  // 120: org.lfedge.eve.info.ZInfoVolume.usage:type_name -> org.lfedge.eve.info.UsageInfo
-	77,  // 121: org.lfedge.eve.info.ZInfoVolume.resources:type_name -> org.lfedge.eve.info.VolumeResources
-	2,   // 122: org.lfedge.eve.info.ZInfoVolume.state:type_name -> org.lfedge.eve.info.ZSwState
-	37,  // 123: org.lfedge.eve.info.ZInfoVolume.volumeErr:type_name -> org.lfedge.eve.info.ErrorInfo
-	79,  // 124: org.lfedge.eve.info.ZInfoContentTree.resources:type_name -> org.lfedge.eve.info.ContentResources
-	76,  // 125: org.lfedge.eve.info.ZInfoContentTree.usage:type_name -> org.lfedge.eve.info.UsageInfo
-	2,   // 126: org.lfedge.eve.info.ZInfoContentTree.state:type_name -> org.lfedge.eve.info.ZSwState
-	37,  // 127: org.lfedge.eve.info.ZInfoContentTree.err:type_name -> org.lfedge.eve.info.ErrorInfo
-	79,  // 128: org.lfedge.eve.info.ZInfoBlob.resources:type_name -> org.lfedge.eve.info.ContentResources
-	76,  // 129: org.lfedge.eve.info.ZInfoBlob.usage:type_name -> org.lfedge.eve.info.UsageInfo
-	2,   // 130: org.lfedge.eve.info.ZInfoBlob.state:type_name -> org.lfedge.eve.info.ZSwState
-	37,  // 131: org.lfedge.eve.info.ZInfoBlob.err:type_name -> org.lfedge.eve.info.ErrorInfo
-	81,  // 132: org.lfedge.eve.info.ZInfoBlobList.blob:type_name -> org.lfedge.eve.info.ZInfoBlob
-	1,   // 133: org.lfedge.eve.info.ZInfoMsg.ztype:type_name -> org.lfedge.eve.info.ZInfoTypes
-	56,  // 134: org.lfedge.eve.info.ZInfoMsg.dinfo:type_name -> org.lfedge.eve.info.ZInfoDevice
-	69,  // 135: org.lfedge.eve.info.ZInfoMsg.ainfo:type_name -> org.lfedge.eve.info.ZInfoApp
-	75,  // 136: org.lfedge.eve.info.ZInfoMsg.niinfo:type_name -> org.lfedge.eve.info.ZInfoNetworkInstance
-	78,  // 137: org.lfedge.eve.info.ZInfoMsg.vinfo:type_name -> org.lfedge.eve.info.ZInfoVolume
-	80,  // 138: org.lfedge.eve.info.ZInfoMsg.cinfo:type_name -> org.lfedge.eve.info.ZInfoContentTree
-	82,  // 139: org.lfedge.eve.info.ZInfoMsg.binfo:type_name -> org.lfedge.eve.info.ZInfoBlobList
-	85,  // 140: org.lfedge.eve.info.ZInfoMsg.amdinfo:type_name -> org.lfedge.eve.info.ZInfoAppInstMetaData
-	86,  // 141: org.lfedge.eve.info.ZInfoMsg.evinfo:type_name -> org.lfedge.eve.info.ZInfoEdgeview
-	55,  // 142: org.lfedge.eve.info.ZInfoMsg.hwinfo:type_name -> org.lfedge.eve.info.ZInfoHardware
-	87,  // 143: org.lfedge.eve.info.ZInfoMsg.locinfo:type_name -> org.lfedge.eve.info.ZInfoLocation
-	96,  // 144: org.lfedge.eve.info.ZInfoMsg.patchInfo:type_name -> org.lfedge.eve.info.ZInfoPatchEnvelope
-	92,  // 145: org.lfedge.eve.info.ZInfoMsg.atTimeStamp:type_name -> google.protobuf.Timestamp
-	18,  // 146: org.lfedge.eve.info.ZInfoAppInstMetaData.type:type_name -> org.lfedge.eve.info.AppInstMetaDataType
-	92,  // 147: org.lfedge.eve.info.ZInfoEdgeview.expire_time:type_name -> google.protobuf.Timestamp
-	92,  // 148: org.lfedge.eve.info.ZInfoEdgeview.started_time:type_name -> google.protobuf.Timestamp
-	92,  // 149: org.lfedge.eve.info.ZInfoLocation.utc_timestamp:type_name -> google.protobuf.Timestamp
-	25,  // 150: org.lfedge.eve.info.ZInfoLocation.horizontal_reliability:type_name -> org.lfedge.eve.info.LocReliability
-	25,  // 151: org.lfedge.eve.info.ZInfoLocation.vertical_reliability:type_name -> org.lfedge.eve.info.LocReliability
-	42,  // 152: org.lfedge.eve.info.ZInfoConfigItemStatus.ConfigItemsEntry.value:type_name -> org.lfedge.eve.info.ZInfoConfigItem
-	42,  // 153: org.lfedge.eve.info.ZInfoConfigItemStatus.UnknownConfigItemsEntry.value:type_name -> org.lfedge.eve.info.ZInfoConfigItem
-	154, // [154:154] is the sub-list for method output_type
-	154, // [154:154] is the sub-list for method input_type
-	154, // [154:154] is the sub-list for extension type_name
-	154, // [154:154] is the sub-list for extension extendee
-	0,   // [0:154] is the sub-list for field type_name
+	57,  // 68: org.lfedge.eve.info.ZInfoDevice.optional_capabilities:type_name -> org.lfedge.eve.info.OptionalCapabilities
+	17,  // 69: org.lfedge.eve.info.AttestationInfo.state:type_name -> org.lfedge.eve.info.AttestationState
+	37,  // 70: org.lfedge.eve.info.AttestationInfo.error:type_name -> org.lfedge.eve.info.ErrorInfo
+	60,  // 71: org.lfedge.eve.info.SystemAdapterInfo.status:type_name -> org.lfedge.eve.info.DevicePortStatus
+	92,  // 72: org.lfedge.eve.info.DevicePortStatus.timePriority:type_name -> google.protobuf.Timestamp
+	92,  // 73: org.lfedge.eve.info.DevicePortStatus.lastFailed:type_name -> google.protobuf.Timestamp
+	92,  // 74: org.lfedge.eve.info.DevicePortStatus.lastSucceeded:type_name -> google.protobuf.Timestamp
+	61,  // 75: org.lfedge.eve.info.DevicePortStatus.ports:type_name -> org.lfedge.eve.info.DevicePort
+	62,  // 76: org.lfedge.eve.info.DevicePort.proxy:type_name -> org.lfedge.eve.info.ProxyStatus
+	35,  // 77: org.lfedge.eve.info.DevicePort.dns:type_name -> org.lfedge.eve.info.ZInfoDNS
+	34,  // 78: org.lfedge.eve.info.DevicePort.location:type_name -> org.lfedge.eve.info.GeoLoc
+	37,  // 79: org.lfedge.eve.info.DevicePort.err:type_name -> org.lfedge.eve.info.ErrorInfo
+	91,  // 80: org.lfedge.eve.info.DevicePort.usage:type_name -> org.lfedge.eve.common.PhyIoMemberUsage
+	64,  // 81: org.lfedge.eve.info.DevicePort.wireless_status:type_name -> org.lfedge.eve.info.WirelessStatus
+	63,  // 82: org.lfedge.eve.info.ProxyStatus.proxies:type_name -> org.lfedge.eve.info.ProxyEntry
+	19,  // 83: org.lfedge.eve.info.WirelessStatus.type:type_name -> org.lfedge.eve.info.WirelessType
+	65,  // 84: org.lfedge.eve.info.WirelessStatus.cellular:type_name -> org.lfedge.eve.info.ZCellularStatus
+	48,  // 85: org.lfedge.eve.info.ZCellularStatus.providers:type_name -> org.lfedge.eve.info.ZCellularProvider
+	94,  // 86: org.lfedge.eve.info.ZCellularStatus.current_rats:type_name -> org.lfedge.eve.common.RadioAccessTechnology
+	92,  // 87: org.lfedge.eve.info.ZCellularStatus.connected_at:type_name -> google.protobuf.Timestamp
+	2,   // 88: org.lfedge.eve.info.ZInfoDevSW.status:type_name -> org.lfedge.eve.info.ZSwState
+	37,  // 89: org.lfedge.eve.info.ZInfoDevSW.swErr:type_name -> org.lfedge.eve.info.ErrorInfo
+	20,  // 90: org.lfedge.eve.info.ZInfoDevSW.userStatus:type_name -> org.lfedge.eve.info.BaseOsStatus
+	21,  // 91: org.lfedge.eve.info.ZInfoDevSW.subStatus:type_name -> org.lfedge.eve.info.BaseOsSubStatus
+	92,  // 92: org.lfedge.eve.info.ZInfoSnapshot.create_time:type_name -> google.protobuf.Timestamp
+	22,  // 93: org.lfedge.eve.info.ZInfoSnapshot.type:type_name -> org.lfedge.eve.info.SnapshotType
+	37,  // 94: org.lfedge.eve.info.ZInfoSnapshot.snap_err:type_name -> org.lfedge.eve.info.ErrorInfo
+	36,  // 95: org.lfedge.eve.info.ZInfoApp.softwareList:type_name -> org.lfedge.eve.info.ZInfoSW
+	92,  // 96: org.lfedge.eve.info.ZInfoApp.bootTime:type_name -> google.protobuf.Timestamp
+	29,  // 97: org.lfedge.eve.info.ZInfoApp.assignedAdapters:type_name -> org.lfedge.eve.info.ZioBundle
+	37,  // 98: org.lfedge.eve.info.ZInfoApp.appErr:type_name -> org.lfedge.eve.info.ErrorInfo
+	2,   // 99: org.lfedge.eve.info.ZInfoApp.state:type_name -> org.lfedge.eve.info.ZSwState
+	33,  // 100: org.lfedge.eve.info.ZInfoApp.network:type_name -> org.lfedge.eve.info.ZInfoNetwork
+	68,  // 101: org.lfedge.eve.info.ZInfoApp.snapshots:type_name -> org.lfedge.eve.info.ZInfoSnapshot
+	95,  // 102: org.lfedge.eve.info.ZInfoApp.patchEnvelope:type_name -> org.lfedge.eve.info.ZInfoPatchEnvelopeUsage
+	23,  // 103: org.lfedge.eve.info.ZInfoVpnLink.state:type_name -> org.lfedge.eve.info.ZInfoVpnState
+	70,  // 104: org.lfedge.eve.info.ZInfoVpnLink.lInfo:type_name -> org.lfedge.eve.info.ZInfoVpnLinkInfo
+	70,  // 105: org.lfedge.eve.info.ZInfoVpnLink.rInfo:type_name -> org.lfedge.eve.info.ZInfoVpnLinkInfo
+	23,  // 106: org.lfedge.eve.info.ZInfoVpnConn.state:type_name -> org.lfedge.eve.info.ZInfoVpnState
+	72,  // 107: org.lfedge.eve.info.ZInfoVpnConn.lInfo:type_name -> org.lfedge.eve.info.ZInfoVpnEndPoint
+	72,  // 108: org.lfedge.eve.info.ZInfoVpnConn.rInfo:type_name -> org.lfedge.eve.info.ZInfoVpnEndPoint
+	71,  // 109: org.lfedge.eve.info.ZInfoVpnConn.links:type_name -> org.lfedge.eve.info.ZInfoVpnLink
+	73,  // 110: org.lfedge.eve.info.ZInfoVpn.conn:type_name -> org.lfedge.eve.info.ZInfoVpnConn
+	92,  // 111: org.lfedge.eve.info.ZInfoNetworkInstance.upTimeStamp:type_name -> google.protobuf.Timestamp
+	36,  // 112: org.lfedge.eve.info.ZInfoNetworkInstance.softwareList:type_name -> org.lfedge.eve.info.ZInfoSW
+	27,  // 113: org.lfedge.eve.info.ZInfoNetworkInstance.ipAssignments:type_name -> org.lfedge.eve.info.ZmetIPAssignmentEntry
+	28,  // 114: org.lfedge.eve.info.ZInfoNetworkInstance.vifs:type_name -> org.lfedge.eve.info.ZmetVifInfo
+	29,  // 115: org.lfedge.eve.info.ZInfoNetworkInstance.assignedAdapters:type_name -> org.lfedge.eve.info.ZioBundle
+	74,  // 116: org.lfedge.eve.info.ZInfoNetworkInstance.vinfo:type_name -> org.lfedge.eve.info.ZInfoVpn
+	37,  // 117: org.lfedge.eve.info.ZInfoNetworkInstance.networkErr:type_name -> org.lfedge.eve.info.ErrorInfo
+	24,  // 118: org.lfedge.eve.info.ZInfoNetworkInstance.state:type_name -> org.lfedge.eve.info.ZNetworkInstanceState
+	92,  // 119: org.lfedge.eve.info.UsageInfo.createTime:type_name -> google.protobuf.Timestamp
+	92,  // 120: org.lfedge.eve.info.UsageInfo.lastRefcountChangeTime:type_name -> google.protobuf.Timestamp
+	76,  // 121: org.lfedge.eve.info.ZInfoVolume.usage:type_name -> org.lfedge.eve.info.UsageInfo
+	77,  // 122: org.lfedge.eve.info.ZInfoVolume.resources:type_name -> org.lfedge.eve.info.VolumeResources
+	2,   // 123: org.lfedge.eve.info.ZInfoVolume.state:type_name -> org.lfedge.eve.info.ZSwState
+	37,  // 124: org.lfedge.eve.info.ZInfoVolume.volumeErr:type_name -> org.lfedge.eve.info.ErrorInfo
+	79,  // 125: org.lfedge.eve.info.ZInfoContentTree.resources:type_name -> org.lfedge.eve.info.ContentResources
+	76,  // 126: org.lfedge.eve.info.ZInfoContentTree.usage:type_name -> org.lfedge.eve.info.UsageInfo
+	2,   // 127: org.lfedge.eve.info.ZInfoContentTree.state:type_name -> org.lfedge.eve.info.ZSwState
+	37,  // 128: org.lfedge.eve.info.ZInfoContentTree.err:type_name -> org.lfedge.eve.info.ErrorInfo
+	79,  // 129: org.lfedge.eve.info.ZInfoBlob.resources:type_name -> org.lfedge.eve.info.ContentResources
+	76,  // 130: org.lfedge.eve.info.ZInfoBlob.usage:type_name -> org.lfedge.eve.info.UsageInfo
+	2,   // 131: org.lfedge.eve.info.ZInfoBlob.state:type_name -> org.lfedge.eve.info.ZSwState
+	37,  // 132: org.lfedge.eve.info.ZInfoBlob.err:type_name -> org.lfedge.eve.info.ErrorInfo
+	81,  // 133: org.lfedge.eve.info.ZInfoBlobList.blob:type_name -> org.lfedge.eve.info.ZInfoBlob
+	1,   // 134: org.lfedge.eve.info.ZInfoMsg.ztype:type_name -> org.lfedge.eve.info.ZInfoTypes
+	56,  // 135: org.lfedge.eve.info.ZInfoMsg.dinfo:type_name -> org.lfedge.eve.info.ZInfoDevice
+	69,  // 136: org.lfedge.eve.info.ZInfoMsg.ainfo:type_name -> org.lfedge.eve.info.ZInfoApp
+	75,  // 137: org.lfedge.eve.info.ZInfoMsg.niinfo:type_name -> org.lfedge.eve.info.ZInfoNetworkInstance
+	78,  // 138: org.lfedge.eve.info.ZInfoMsg.vinfo:type_name -> org.lfedge.eve.info.ZInfoVolume
+	80,  // 139: org.lfedge.eve.info.ZInfoMsg.cinfo:type_name -> org.lfedge.eve.info.ZInfoContentTree
+	82,  // 140: org.lfedge.eve.info.ZInfoMsg.binfo:type_name -> org.lfedge.eve.info.ZInfoBlobList
+	85,  // 141: org.lfedge.eve.info.ZInfoMsg.amdinfo:type_name -> org.lfedge.eve.info.ZInfoAppInstMetaData
+	86,  // 142: org.lfedge.eve.info.ZInfoMsg.evinfo:type_name -> org.lfedge.eve.info.ZInfoEdgeview
+	55,  // 143: org.lfedge.eve.info.ZInfoMsg.hwinfo:type_name -> org.lfedge.eve.info.ZInfoHardware
+	87,  // 144: org.lfedge.eve.info.ZInfoMsg.locinfo:type_name -> org.lfedge.eve.info.ZInfoLocation
+	96,  // 145: org.lfedge.eve.info.ZInfoMsg.patchInfo:type_name -> org.lfedge.eve.info.ZInfoPatchEnvelope
+	92,  // 146: org.lfedge.eve.info.ZInfoMsg.atTimeStamp:type_name -> google.protobuf.Timestamp
+	18,  // 147: org.lfedge.eve.info.ZInfoAppInstMetaData.type:type_name -> org.lfedge.eve.info.AppInstMetaDataType
+	92,  // 148: org.lfedge.eve.info.ZInfoEdgeview.expire_time:type_name -> google.protobuf.Timestamp
+	92,  // 149: org.lfedge.eve.info.ZInfoEdgeview.started_time:type_name -> google.protobuf.Timestamp
+	92,  // 150: org.lfedge.eve.info.ZInfoLocation.utc_timestamp:type_name -> google.protobuf.Timestamp
+	25,  // 151: org.lfedge.eve.info.ZInfoLocation.horizontal_reliability:type_name -> org.lfedge.eve.info.LocReliability
+	25,  // 152: org.lfedge.eve.info.ZInfoLocation.vertical_reliability:type_name -> org.lfedge.eve.info.LocReliability
+	42,  // 153: org.lfedge.eve.info.ZInfoConfigItemStatus.ConfigItemsEntry.value:type_name -> org.lfedge.eve.info.ZInfoConfigItem
+	42,  // 154: org.lfedge.eve.info.ZInfoConfigItemStatus.UnknownConfigItemsEntry.value:type_name -> org.lfedge.eve.info.ZInfoConfigItem
+	155, // [155:155] is the sub-list for method output_type
+	155, // [155:155] is the sub-list for method input_type
+	155, // [155:155] is the sub-list for extension type_name
+	155, // [155:155] is the sub-list for extension extendee
+	0,   // [0:155] is the sub-list for field type_name
 }
 
 func init() { file_info_info_proto_init() }
