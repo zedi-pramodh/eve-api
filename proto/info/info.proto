@@ -214,6 +214,9 @@ enum ZSwState {
   // START_DELAYED state after ERROR.
   // Had to prefix with Z_SW_STATE_ to satisfy yetus checks.
   START_DELAYED = 22; // App has been configured to start with delay by user
+
+  PENDING = 23; // Kubernetes app in pending state
+  SCHEDULING = 24; // Kubernetes app in scheduling state
 }
 
 // SW Info for Apps
