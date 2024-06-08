@@ -77,4 +77,6 @@ message EncryptionBlock {
   string cellular_net_username = 6;
   // Password for cellular network.
   string cellular_net_password = 7;
+  // Cluster token
+  string cluster_token = 8;
 }
